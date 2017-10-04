@@ -1,0 +1,28 @@
+.home {
+  width: 60%;
+  margin: auto;
+
+  .item {
+    background-color: teal;
+    position: relative;
+
+    &__exit {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 30px;
+      width: 30px;
+      z-index: 2;
+    }
+  }
+
+  .item--fadeIn {
+    opacity: 1;
+    transition: opacity 0.8s ease;
+  }
+
+  .item--fadeOut {
+    opacity: 0;
+    transition: opacity 0.8s ease;
+  }
+}

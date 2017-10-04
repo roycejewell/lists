@@ -51,11 +51,11 @@ class MainWrapper extends Component {
 
   render () {
     return (
-      <div>
-        <Header
+      <div className={ this.props.state.app.open ? 'open' : 'closed'}>
+        {/* <Header
           location={ this.props.location }
         />
-        <Nav />
+        <Nav /> */}
         <main
           role="main"
           aria-live='polite'
@@ -64,11 +64,7 @@ class MainWrapper extends Component {
           style={{minHeight: windowHeight(768, -100, 150)}}>
           { renderChildren(this.props) }
         </main>
-        <Modal
-          content={ this.props.state.app.content }
-          close={ this.props.actions.app.closeModal }
-          visible={ this.props.state.app.open } />
-        <Footer />
+        {/* <Footer /> */}
         { renderDevTools() }
       </div>
     );

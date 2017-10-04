@@ -11,11 +11,11 @@
   overflow: scroll;
 
   &.visible-true {
-    animation: modalFadeIn 0.8s ease;
+    animation: modalFadeIn 0.8s ease forwards;
   }
 
   &.visible-false {
-    display: none;
+    animation: modalFadeOut 0.8s ease forwards;
   }
 
   &__content {
@@ -31,5 +31,16 @@
   }
   to {
     opacity: 1;
+  }
+}
+
+@keyframes modalFadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    display: none;
+    z-index: -1;
   }
 }

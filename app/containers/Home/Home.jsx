@@ -5,22 +5,48 @@ import Nav from 'components/Nav';
 import Button from 'components/Button';
 import { methods } from 'data/arrayMethods';
 
-function renderMethods( methods, open ) {
+if (process.env.BROWSER) {
+  require('./style.scss');
+}
+
+function renderMethods( methods, openModal, current, closeModal, open ) {
   return methods.map( ( method, i ) => {
-    return (
-      <div key={i} onClick={ () => open( method ) }>
-        <Title>{ method.method }</Title>
-        <Description>{ method.short }</Description>
-      </div>
-    );
+    const shouldFadeOut = (i !== current) && open ? 'item--fadeOut' : '';
+    const shouldFadeIn = (i !== current) && !open ? 'item--fadeIn' : '';
+    
+    if( i === current ) {
+      return (
+        <div key={i} className={`item ${shouldFadeOut} ${shouldFadeIn}`}>
+          <div className='item__exit' onClick={ () => closeModal() }>
+            <Title>X</Title>
+          </div>
+          <div onClick={ () => openModal( method, i ) }>
+            <Title>{ method.method }</Title>
+          </div>
+          <Description>{ method.short }</Description>
+        </div>
+      );
+    }
+    else {
+      return(
+        <div key={i} className={`item ${shouldFadeOut} ${shouldFadeIn}`}>
+          <div onClick={ () => openModal( method, i ) }>
+            <Title>{ method.method }</Title>
+          </div>
+          <Description>{ method.short }</Description>
+        </div>
+      );
+    }
   });
 }
 
 function Home (props) {
+  const { openModal, closeModal } = props.actions.app;
+  const { current, open } = props.state.app;
+
   return (
     <div className='home'>
-      <Title>Home</Title>
-      { renderMethods( methods, props.actions.app.openModal) }
+      { renderMethods( methods, openModal, current, closeModal, open ) }
     </div>
   );
 }
