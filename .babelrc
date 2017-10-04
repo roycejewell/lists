@@ -1,0 +1,38 @@
+{
+  "presets": [
+    "react",
+    "es2015", 
+    "stage-0",
+    "react-optimize"
+  ],
+
+  "plugins": [
+    "syntax-decorators",
+    ["resolver", {"resolveDirs": ["app", "server", "webpack"] } ]
+  ],
+
+  "env": {
+    "development": {
+      "plugins": [
+        ["react-transform", {
+          "transforms": [{
+            "transform": "react-transform-catch-errors",
+            "imports": [
+              "react", 
+              "redbox-react"
+            ]
+          }]
+        }]
+      ]
+    },
+    "production": {
+      "plugins": [
+        ["transform-react-remove-prop-types", {
+          "mode": "remove"
+        }],
+        "transform-react-inline-elements",
+        "transform-react-constant-elements"
+      ]
+    }
+  }
+}

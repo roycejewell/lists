@@ -1,0 +1,234 @@
+@import 'styles/variables.scss';
+@import 'styles/mixins/mq.scss';
+.home {
+
+  &__description {
+    float: left;
+
+    @include mq($L) {
+      width: 70%;
+    }
+  }
+
+  &__cases {
+    float: left;
+
+    @include mq($L) {
+      width: 25%;
+      padding-left: $space*2;
+    }
+  }
+}
+.err {
+  padding-top: 25%;
+  text-align: center;
+}
+
+.case-study-container {
+  overflow: hidden;
+  width: 100%;
+  padding: 0 0 $space*2 0;
+  display: block;
+
+  @include mq($S) {
+    width: 50%;
+    display: inline-block;
+  }
+
+  @include mq($L) {
+    width: 100%;
+  }
+
+  &:nth-of-type(1) .case-study {
+    animation: descriptionEntry 800ms $easeOutCubic 1300ms forwards;
+  }
+
+  &:nth-of-type(2) .case-study {
+    animation: descriptionEntry 800ms $easeOutCubic 1400ms forwards;
+  }
+
+  &:nth-of-type(3) .case-study {
+    animation: descriptionEntry 800ms $easeOutCubic 1500ms forwards;
+  }
+
+  &:nth-of-type(4) .case-study {
+    animation: descriptionEntry 800ms $easeOutCubic 1600ms forwards;
+  }
+
+  .case-study {
+    display: block;
+    transform: translateY(-30px);
+    opacity: 0;
+
+    .leaving & {
+      animation: descriptionExit 300ms $easeOutCubic forwards;
+    }
+  }
+}
+.page-container {
+  padding: $space*5 $space;
+
+  @include mq($S) {
+    padding: $space*8 $space*5;
+  }
+
+  @include mq($M) {
+    padding: 100px 15%;
+  }
+
+  @include mq($L) {
+    padding: 110px 0 0 15%;
+  }
+}
+
+.page-side-bg {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: $black;
+  z-index: -1;
+  display: none;
+
+  left: 100%;
+  animation: sideEntry 500ms $easeOutSine 700ms forwards;
+
+  .leaving & {
+    left: 75%;
+    animation: sideExit 400ms $easeOutSine forwards;
+  }
+
+  @include mq($M) {
+    display: block;
+  }
+}
+
+.page-border {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: $black;
+
+  .initial & {
+    animation: initialLoad 600ms ease forwards;
+  }
+
+  .toWork & {
+    left: 100%;
+    transition: left 800ms $easeOutSine 1000ms;
+  }
+
+  @include mq($M) {
+    top: 10%;
+    bottom: 10%;
+    right: 8%;
+    left: 8%;
+  }
+
+  @include mq($L) {
+    top: 15%;
+    bottom: 15%;
+    right: 10%;
+    left: 10%;
+  }
+}
+
+.page-content {
+  overflow: scroll;
+  position: absolute;
+  top: $space;
+  bottom: $space;
+  left: $space;
+  right: 100%;
+  background-color: $white;
+  z-index: 2;
+  animation: pageEntry 800ms $easeOutSine 200ms forwards ;
+
+  .leaving & {
+    left: $space;
+    right: $space;
+    animation: pageExit 800ms $easeOutSine 200ms forwards ;
+  }
+
+  @include mq($S) {
+    background-color: $white;
+
+  }
+
+  @include mq($M) {
+    background-color: $white;
+
+  }
+
+  @include mq($L) {
+
+  }
+}
+
+@keyframes initialLoad {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes sideEntry {
+  0% {
+    left: 100%;
+  }
+  100% {
+    left: 75%;
+  }
+}
+
+@keyframes sideExit {
+  0% {
+    left: 75%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+@keyframes borderEntry {
+  0% {
+    left: 50%;
+    opacity: 0;
+  }
+
+  100% {
+    left: 10%;
+    opacity: 1;
+  }
+}
+
+@keyframes borderExit {
+  0% {
+    left: 10%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+@keyframes pageExit {
+  0% {
+    left: $space;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+@keyframes pageEntry {
+  0% {
+    right: 100%;
+  }
+  100% {
+    right: $space;
+  }
+}
