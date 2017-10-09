@@ -1,43 +1,12 @@
 import React from 'react';
 import Title, { titleTypes } from 'components/Title';
-import Description from 'components/Description';
+import Description, { descriptionTypes } from 'components/Description';
 import Nav from 'components/Nav';
-import Button from 'components/Button';
 import { methods } from 'data/arrayMethods';
+import { brand } from 'data/brandData';
 
 if (process.env.BROWSER) {
   require('./style.scss');
-}
-
-function renderMethods( methods, openModal, current, closeModal, open ) {
-  return methods.map( ( method, i ) => {
-    const shouldFadeOut = (i !== current) && open ? 'item--fadeOut' : '';
-    const shouldFadeIn = (i !== current) && !open ? 'item--fadeIn' : '';
-    
-    if( i === current ) {
-      return (
-        <div key={i} className={`item ${shouldFadeOut} ${shouldFadeIn}`}>
-          <div className='item__exit' onClick={ () => closeModal() }>
-            <Title>X</Title>
-          </div>
-          <div onClick={ () => openModal( method, i ) }>
-            <Title>{ method.method }</Title>
-          </div>
-          <Description>{ method.short }</Description>
-        </div>
-      );
-    }
-    else {
-      return(
-        <div key={i} className={`item ${shouldFadeOut} ${shouldFadeIn}`}>
-          <div onClick={ () => openModal( method, i ) }>
-            <Title>{ method.method }</Title>
-          </div>
-          <Description>{ method.short }</Description>
-        </div>
-      );
-    }
-  });
 }
 
 function Home (props) {
@@ -46,7 +15,24 @@ function Home (props) {
 
   return (
     <div className='home'>
-      { renderMethods( methods, openModal, current, closeModal, open ) }
+      <div className='home__header'>
+        <Title type={ titleTypes.large }>{ brand.title }</Title>
+        <Description type={ descriptionTypes.large }>{ brand.description }</Description>
+      </div>
+      { methods.map( ( method, i ) => {
+          const shouldFadeOut = (i !== current) && open ? 'item--fadeOut' : '';
+          const shouldFadeIn = (i !== current) && !open ? 'item--fadeIn' : '';
+          const isCurrent = i == current ? 'item--current' : '';
+          return (
+            <div key={i} id={`item-${i}`} className={`item ${isCurrent} ${shouldFadeOut} ${shouldFadeIn}`}>
+              <div onClick={ () => openModal( method, i ) }>
+                <Title type={titleTypes.medium}>{ method.method }</Title>
+              </div>
+              <Description type={descriptionTypes.medium}>{ method.short }</Description>
+            </div>
+          );
+        })
+      }
     </div>
   );
 }

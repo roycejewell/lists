@@ -1,0 +1,10 @@
+@import 'styles/variables.scss';
+@import 'styles/mixins/mq.scss';
+
+.code {
+  padding: $space*3;
+  margin: $space*2 0 $space*6;
+  background-color: $code-bg;
+  font-size: $font-size-18;
+  display: block;
+}

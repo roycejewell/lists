@@ -7,7 +7,7 @@ if (process.env.BROWSER) {
 function Footer (props) {
   return (
     <footer className='footer' role='contentinfo'>
-      <p>Footer</p>
+    
     </footer>
   );
 }

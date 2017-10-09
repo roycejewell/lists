@@ -1,4 +1,29 @@
 @import 'styles/variables.scss';
 @import 'styles/mixins/mq.scss';
 
-.description { }
+.description {
+  padding: 0;
+  margin: 0;
+
+  &--large {
+    font-size: $font-size-18;
+    padding: $space 0;
+    margin: 0;
+  }
+
+  &--medium {
+    font-size: $font-size-16;
+    padding: 0;
+    margin: $space 0 $space*3;
+    line-height: 1.55;
+    letter-spacing: 0.65px
+  }
+
+  &--small {
+    font-size: $font-size-16;
+    padding: 0;
+    margin: $space 0;
+    line-height: 1.55;
+    letter-spacing: 0.65px
+  }
+}

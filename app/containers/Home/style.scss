@@ -1,28 +1,28 @@
+@import 'styles/variables.scss';
+@import 'styles/mixins/mq.scss';
+
 .home {
   width: 60%;
   margin: auto;
 
-  .item {
-    background-color: teal;
-    position: relative;
+  &__header {
+    padding: $space*5 $space*4 $space*4; 
+  }
 
-    &__exit {
-      position: absolute;
-      top: 0;
-      right: 0;
-      height: 30px;
-      width: 30px;
-      z-index: 2;
-    }
+  .item {
+    position: relative;
+    height: 120px;
+    padding: $space*4;
+    overflow: hidden;
   }
 
   .item--fadeIn {
     opacity: 1;
-    transition: opacity 0.8s ease;
+    transition: opacity 0.25s ease 0.4s;
   }
 
   .item--fadeOut {
     opacity: 0;
-    transition: opacity 0.8s ease;
+    transition: opacity 0.2s ease;
   }
 }

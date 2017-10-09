@@ -7,13 +7,14 @@ if (process.env.BROWSER) {
 export const titleTypes = {
   large: 'large',
   medium: 'medium',
-  small: 'small'
+  small: 'small',
+  xsmall: 'xsmall'
 };
 
 function Title (props) {
   return (
     <div className='title'>
-      { props.children }
+      <h1 className={`title--${props.type}`}>{ props.children }</h1>
     </div>
   );
 }

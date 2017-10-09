@@ -4,10 +4,17 @@ if (process.env.BROWSER) {
   require('./style.scss');
 }
 
+export const descriptionTypes = {
+  large: 'large',
+  medium: 'medium',
+  small: 'small',
+};
 
 function Description (props) {
   return (
-    <p className='description'>{ props.children }</p>
+    <div className='description'>
+      <p className={`description--${props.type}`}>{ props.children }</p>
+    </div>
   );
 }
 

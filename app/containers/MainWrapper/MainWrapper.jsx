@@ -50,12 +50,15 @@ class MainWrapper extends Component {
   }
 
   render () {
+    const { open, current, content } = this.props.state.app;
+    const { closeModal } = this.props.actions.app;
+    if (process.env.BROWSER) {
+      document.body.style.animation = open ? 'disableScroll 0.01s ease forwards' : 'enableScroll 0.01s ease forwards 0.65s';
+    }
+
     return (
-      <div className={ this.props.state.app.open ? 'open' : 'closed'}>
-        {/* <Header
-          location={ this.props.location }
-        />
-        <Nav /> */}
+      <div className={ open ? 'open' : 'closed'}>
+        <Header location={ this.props.location }/>
         <main
           role="main"
           aria-live='polite'
@@ -63,8 +66,14 @@ class MainWrapper extends Component {
           className='clearfix'
           style={{minHeight: windowHeight(768, -100, 150)}}>
           { renderChildren(this.props) }
+          <Modal
+            current={ current }
+            content={ content }
+            close={ closeModal }
+            visible={ open }
+          />
         </main>
-        {/* <Footer /> */}
+        <Footer />
         { renderDevTools() }
       </div>
     );

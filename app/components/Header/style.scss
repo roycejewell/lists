@@ -1,4 +1,14 @@
 @import 'styles/variables.scss';
 @import 'styles/mixins/mq.scss';
 
-.header { }
+.header {
+  margin: auto;
+  position: fixed;
+  padding: $space*4;
+  z-index: 5;
+
+  &__logo {
+    height: 60px;
+    width: auto;
+  }
+}

@@ -1,7 +1,7 @@
 @import './variables.scss';
 
 body {
-  font-family: Montserrat, Arial, sans-serif;
+  font-family: 'Montserrat', Arial, sans-serif;
   font-size: $font-size-base; // 16px
   -moz-osx-font-smoothing: antialiased;
   -webkit-font-smoothing: antialiased;
@@ -13,13 +13,13 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: Montserrat, Helvetica, sans-serif;
+  font-family: 'Source Code Pro', Helvetica, sans-serif;
   margin: 0;
   padding: 0;
 }
 
 p {
-  font-family: Montserrat, Helvetica, sans-serif;
+  font-family: 'Montserrat', Helvetica, sans-serif;
   line-height: 1.5;
   margin: 0;
   padding: 0 0 $space;

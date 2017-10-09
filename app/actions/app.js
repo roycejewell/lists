@@ -24,8 +24,8 @@ export function setContent(payload) {
 }
 
 export function openModal(content, i) {
-  console.log('open modal');
   return (dispatch) => {
+    dispatch(setContent(false));
     dispatch(open(true));
     dispatch(current(i));
     dispatch(setContent(content));
@@ -33,10 +33,8 @@ export function openModal(content, i) {
 }
 
 export function closeModal() {
-  console.log('close modal');
   return (dispatch) => {
     dispatch(open(false));
     dispatch(current(false));
-    dispatch(setContent(false));
   };
 }
