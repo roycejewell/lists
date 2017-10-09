@@ -4,6 +4,7 @@ import { withRouter } from 'react-router';
 import Nav from 'components/Nav';
 import Header from 'components/Header';
 import Modal from 'components/Modal';
+import Loader from 'components/Loader';
 import Footer from 'components/Footer';
 import { windowHeight } from 'services/windowSize';
 //import GA from 'services/gaService';
@@ -38,6 +39,7 @@ class MainWrapper extends Component {
   componentDidMount() {
     //Uncomment to enable Google Analytics Page Tracking
     //GA.pageload(this.props.location.pathname);
+    this.props.actions.app.initialLoad();
   }
 
   componentWillReceiveProps(nextProps) {
@@ -50,7 +52,7 @@ class MainWrapper extends Component {
   }
 
   render () {
-    const { open, current, content } = this.props.state.app;
+    const { open, current, content, initial } = this.props.state.app;
     const { closeModal } = this.props.actions.app;
     if (process.env.BROWSER) {
       document.body.style.animation = open ? 'disableScroll 0.01s ease forwards' : 'enableScroll 0.01s ease forwards 0.65s';
@@ -58,6 +60,7 @@ class MainWrapper extends Component {
 
     return (
       <div className={ open ? 'open' : 'closed'}>
+        <Loader visible={ initial }/>
         <Header location={ this.props.location }/>
         <main
           role="main"

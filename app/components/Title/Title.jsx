@@ -12,9 +12,10 @@ export const titleTypes = {
 };
 
 function Title (props) {
+  const { cursor, type, children } = props;
   return (
     <div className='title'>
-      <h1 className={`title--${props.type}`}>{ props.children }</h1>
+      <h1 style={{ cursor: cursor }} className={`title--${type}`}>{ children }</h1>
     </div>
   );
 }

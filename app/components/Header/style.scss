@@ -3,12 +3,32 @@
 
 .header {
   margin: auto;
-  position: fixed;
-  padding: $space*4;
+  padding: $space;
   z-index: 5;
 
+  @include mq($S) {
+    padding: $space*2;
+  }
+
+  @include mq($M) {
+    position: fixed;
+    padding: $space*2;
+  }
+
+  @include mq($L) {
+    padding: $space*4;
+  }
+
   &__logo {
-    height: 60px;
+    height: 30px;
     width: auto;
+
+    @include mq($S) {
+      height: 45px;
+    }
+
+    @include mq($L) {
+      height: 60px;
+    }
   }
 }

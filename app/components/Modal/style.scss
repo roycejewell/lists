@@ -20,13 +20,66 @@
     animation: modalFadeOut 0.25s ease 0.4s forwards;
   }
 
+  &__close {
+    margin: 0;
+    padding: 0;
+    bottom: $space;
+    right: $space;
+    position: fixed;
+    font-size: $font-size-32;
+    transition: all 0.1s $easeInOutQuint;
+    cursor: pointer;
+    z-index: 20;
+    height: 60px;
+    width: 60px;
+    text-align: center;
+    line-height: 60px;
+    background-color: red;
+    border-radius: 30px;
+    transform: scale(0);
+
+    @include mq($M) {
+      right: 12%;
+    }
+
+    @include mq($L) {
+      right: 24%;
+    }
+
+    .open & {
+      opacity: 1;
+      transform: scale(1);
+      transition: all 0.35s $easeInOutQuint 0.75s;
+    }
+  }
+
   &__content {
     background-color: white;
     position: absolute;
-    left: 20%;
-    right: 20%;
+    left: 0;
+    right: 0;
     height: 120px;
-    padding: $space*4;
+    padding: $space*2 $space;
+
+    @include mq($S) {
+      left: 10%;
+      right: 10%;
+      height: 120px;
+      padding: $space*4 $space*2;
+    }
+
+    @include mq($M) {
+      height: 120px;
+      padding: $space*4 $space*2 ;
+    }
+
+    @include mq($L) {
+      position: absolute;
+      left: 20%;
+      right: 20%;
+      height: 120px;
+      padding: $space*4;
+    }
 
     .open & {
       animation: modalExpand 0.35s $easeInOutQuint 0.2s forwards;

@@ -31,12 +31,14 @@ function Modal (props) {
 
   return (
     <div className={ `modal visible-${visible}` } >
-      <div onClick={ () => close() } id='modal' className='modal__content' style={ style }>
-        <Title type={ titleTypes.medium }>{ content.method }</Title>
-          <div className='modal__description--short'>
-            <Description type={ descriptionTypes.medium }>{ content.short }</Description>
-          </div>
-
+      <div id='modal' className='modal__content' style={ style }>
+        <p className='modal__close' onClick={ () => close() }>✕</p>
+        <div className='modal__title'>
+          <Title type={ titleTypes.medium }>{ content.method }</Title>
+        </div>
+        <div className='modal__description--short'>
+          <Description type={ descriptionTypes.medium }>{ content.short }</Description>
+        </div>
         <div className='modal__description--long'>
           <Description type={ descriptionTypes.medium }>{ content.long }</Description>
         </div>

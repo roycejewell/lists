@@ -2,18 +2,45 @@
 @import 'styles/mixins/mq.scss';
 
 .home {
-  width: 60%;
+  width: 100%;
   margin: auto;
 
+  @include mq($S) {
+    width: 80%;
+  }
+
+  @include mq($L) {
+    width: 60%;
+  }
+
   &__header {
-    padding: $space*5 $space*4 $space*4; 
+    padding: $space $space 0;
+
+    @include mq($S) {
+      padding: $space*2 $space*2 $space;
+    }
+    @include mq($M) {
+      padding: $space*4 $space*2 $space;
+    }
+
+    @include mq($L) {
+      padding: $space*5 $space*4 $space*4;
+    }
   }
 
   .item {
     position: relative;
     height: 120px;
-    padding: $space*4;
+    padding: $space*2 $space;
     overflow: hidden;
+
+    @include mq($S) {
+      padding: $space*4 $space*2;
+    }
+
+    @include mq($L) {
+      padding: $space*4;
+    }
   }
 
   .item--fadeIn {

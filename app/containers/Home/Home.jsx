@@ -26,7 +26,7 @@ function Home (props) {
           return (
             <div key={i} id={`item-${i}`} className={`item ${isCurrent} ${shouldFadeOut} ${shouldFadeIn}`}>
               <div onClick={ () => openModal( method, i ) }>
-                <Title type={titleTypes.medium}>{ method.method }</Title>
+                <Title cursor={'pointer'} type={titleTypes.medium}>{ method.method }</Title>
               </div>
               <Description type={descriptionTypes.medium}>{ method.short }</Description>
             </div>

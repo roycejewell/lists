@@ -1,13 +1,15 @@
 import {
   OPEN,
   CONTENT,
-  CURRENT
+  CURRENT,
+  INITIAL
 } from 'actions/app';
 
 export const initialState = {
   open: false,
   content: false,
-  current: false
+  current: false,
+  initial: true,
 };
 
 export default function reducer(state = initialState, action) {
@@ -26,6 +28,11 @@ export default function reducer(state = initialState, action) {
       return {
         ...state,
         current : action.payload
+      };
+    case INITIAL:
+      return {
+        ...state,
+        initial : false
       };
     default:
       return state;

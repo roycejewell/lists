@@ -1,6 +1,7 @@
 export const OPEN = 'OPEN';
 export const CURRENT = 'CURRENT';
 export const CONTENT = 'CONTENT';
+export const INITIAL = 'INITIAL';
 
 export function open(payload) {
   return {
@@ -37,4 +38,10 @@ export function closeModal() {
     dispatch(open(false));
     dispatch(current(false));
   };
+}
+
+export function initialLoad() {
+  return {
+    type: INITIAL,
+  }
 }
