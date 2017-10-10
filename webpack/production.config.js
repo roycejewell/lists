@@ -38,18 +38,18 @@ var configs = {
       {
         test: /\.js(x)?$/,
         loaders: ['babel-loader', 'webpack-strip-logs'],
-        exclude: /node_modules/ 
+        exclude: /node_modules/
       },
       {
         test: /\.scss$/,
         loader: ExtractTextPlugin.extract({ fallback: 'style-loader', use: sassLoaders.join('!')})
       },
-      { 
-        test: /\.(jpg|jpeg|png|gif|svg)$/, 
+      {
+        test: /\.(jpg|jpeg|png|gif|svg)$/,
         loaders: ['url-loader?limit=25000', 'img-loader']
       },
       {
-        test: /\.(eot|woff|woff2|ttf|svg)$/, 
+        test: /\.(eot|woff|woff2|ttf|svg)$/,
         loader: 'url-loader?limit=20000'
       }
     ]
