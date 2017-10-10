@@ -2,6 +2,8 @@ Lists
 ------
 Create simple lists, great looking lists with just a few config files. Also easily customizable.
 
+![](http://g.recordit.co/AI5TJJvcMb.gif)
+
 ### Quick Dev Start
 * `nvm use` if using [NVM](https://github.com/creationix/nvm) to select the correct version of Node
 * `npm install -g babel babel-cli`
