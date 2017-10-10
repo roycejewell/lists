@@ -1,4 +1,5 @@
 import React from 'react';
+import { brand } from 'data/brand';
 
 if (process.env.BROWSER) {
   require('./style.scss');
@@ -6,8 +7,8 @@ if (process.env.BROWSER) {
 
 function Footer (props) {
   return (
-    <footer className='footer' role='contentinfo'>
-    
+    <footer style={{ backgroundColor: brand.footerColor }} className='footer' role='contentinfo'>
+
     </footer>
   );
 }

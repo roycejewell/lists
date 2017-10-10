@@ -4,7 +4,6 @@
 .header {
   margin: auto;
   padding: $space;
-  z-index: 5;
 
   @include mq($S) {
     padding: $space*2;

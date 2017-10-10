@@ -27,7 +27,7 @@ function Modal (props) {
   const { content, close, visible, current } = props;
   const { title, short, long, examples } = content;
   const top = visible ? document.getElementById(`item-${current}`).getBoundingClientRect().top : 'none';
-  const style = { top: top };
+  const style = { top: top, backgroundColor: brand.backgroundColor };
 
   if (process.env.BROWSER) {
     document.getElementById('modal').scrollTop = 0;

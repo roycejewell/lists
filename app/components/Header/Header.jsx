@@ -1,14 +1,14 @@
 import React from 'react';
+import { brand } from 'data/brand';
 
 if (process.env.BROWSER) {
   require('./style.scss');
 }
 
 function Header (props) {
-  const { logo } = props;
   return (
-    <header className='header'>
-      <img src={ logo } className='header__logo'/>
+    <header className='header' style={{ backgroundColor: brand.backgroundColor }}>
+      <img src={ brand.logo } className='header__logo'/>
     </header>
   );
 }

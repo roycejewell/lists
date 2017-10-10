@@ -16,7 +16,7 @@
 
   .closed & {
     opacity: 1;
-    animation: modalFadeOut 0.25s ease 0.4s forwards;
+    animation: modalFadeOut 0.5s ease 0.4s forwards;
   }
 
   &__close {
@@ -133,10 +133,17 @@
 }
 
 @keyframes modalFadeOut {
-  from {
+  0% {
     opacity: 1;
+    display: block;
   }
-  to {
+
+  50% {
+    opacity: 0;
+    display: block;
+  }
+
+  100% {
     opacity: 0;
     display: none;
     z-index: -1;

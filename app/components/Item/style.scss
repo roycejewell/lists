@@ -14,10 +14,10 @@
   @include mq($L) {
     padding: $space*4;
   }
-  
+
   &--fadeIn {
     opacity: 1;
-    transition: opacity 0.25s ease 0.4s;
+    transition: opacity 0.5s ease 0.45s;
   }
 
   &--fadeOut {
