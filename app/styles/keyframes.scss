@@ -1,4 +1,3 @@
-
 @keyframes disableScroll {
   100% {
     height: 100%;
@@ -11,8 +10,50 @@
     height: 100%;
     overflow: hidden;
   }
+
   100% {
     height: auto;
     overflow: auto;
+  }
+}
+
+@keyframes modalExpand {
+  to {
+    top: 0;
+    height: 100%;
+  }
+}
+
+@keyframes modalCollapse {
+  from {
+    top: 0;
+    height: 100%;
+  }
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modalFadeOut {
+  0% {
+    opacity: 1;
+    display: block;
+  }
+
+  50% {
+    opacity: 0;
+    display: block;
+  }
+
+  100% {
+    opacity: 0;
+    display: none;
+    z-index: -1;
   }
 }

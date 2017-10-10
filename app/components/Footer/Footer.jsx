@@ -7,9 +7,7 @@ if (process.env.BROWSER) {
 
 function Footer (props) {
   return (
-    <footer style={{ backgroundColor: brand.footerColor }} className='footer' role='contentinfo'>
-
-    </footer>
+    <footer style={{ backgroundColor: brand.footerColor }} className='footer' role='contentinfo'></footer>
   );
 }
 

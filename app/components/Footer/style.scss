@@ -1,8 +1,7 @@
 @import 'styles/variables.scss';
-@import 'styles/mixins/mq.scss';
 
 .footer {
-  width: 100%;
   margin: auto;
   padding: $space*4;
+  width: 100%;
 }

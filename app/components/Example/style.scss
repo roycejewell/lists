@@ -1,5 +1,4 @@
 @import 'styles/variables.scss';
-@import 'styles/mixins/mq.scss';
 
 .example {
   opacity: 0;
@@ -11,9 +10,9 @@
   }
 
   .open & {
-    transition: all 0.3s ease 0.45s;
     opacity: 1;
     transform: translateY(0);
+    transition: all 0.3s ease 0.45s;
 
     &:nth-of-type(2) {
       transition: all 0.33s ease 0.5s;

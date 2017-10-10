@@ -9,12 +9,13 @@ if (process.env.BROWSER) {
 function Item (props) {
   const { id, item, click, isCurrent, shouldFadeIn, shouldFadeOut } = props;
   const { title, short } = item;
+
   return (
-    <div id={`item-${id}`} className={`item ${isCurrent} ${shouldFadeOut} ${shouldFadeIn}`}>
+    <div id={`item-${ id }`} className={`item ${ isCurrent } ${ shouldFadeOut } ${ shouldFadeIn }`}>
       <div onClick={ () => click() }>
-        <Title cursor={'pointer'} type={titleTypes.medium}>{ title }</Title>
+        <Title cursor={'pointer'} type={ titleTypes.medium }>{ title }</Title>
       </div>
-      <Description type={descriptionTypes.medium}>{ short }</Description>
+      <Description type={ descriptionTypes.medium }>{ short }</Description>
     </div>
   );
 }

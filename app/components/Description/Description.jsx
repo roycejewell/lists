@@ -13,6 +13,7 @@ export const descriptionTypes = {
 
 function Description (props) {
   const { type, children } = props;
+
   return (
     <div className='description'>
       <p className={`description--${ type }`} style={{ color: brand.descriptionColor }}>{ children }</p>

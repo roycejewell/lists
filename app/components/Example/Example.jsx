@@ -9,6 +9,7 @@ if (process.env.BROWSER) {
 
 function Example (props) {
   const { title, description, code } = props;
+  
   return (
     <div className='example'>
       <Title type={ titleTypes.small }>{ title }</Title>

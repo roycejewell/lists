@@ -14,6 +14,7 @@ export const titleTypes = {
 
 function Title (props) {
   const { cursor, type, children } = props;
+  
   return (
     <div className='title'>
       <h1 style={{ cursor: cursor, color: brand.titleColor }} className={`title--${type}`}>{ children }</h1>

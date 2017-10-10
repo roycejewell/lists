@@ -11,11 +11,12 @@ export const buttonTypes = {
 
 function Button (props) {
   const { children, click, type } = props;
+
   return (
     <p
     style={{ backgroundColor: brand.buttonColor, color: brand.buttonIconColor }}
-    className={`button button--${type}`}
-    onClick={ () => click() }>{children}</p>
+    className={`button button--${ type }`}
+    onClick={ () => click() }>{ children }</p>
   );
 }
 

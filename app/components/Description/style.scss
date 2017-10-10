@@ -2,15 +2,15 @@
 @import 'styles/mixins/mq.scss';
 
 .description {
-  padding: 0;
   margin: 0;
+  padding: 0;
 
   &--large {
     font-size: $font-size-14;
-    padding: $space 0;
-    margin: 0;
-    line-height: 1.55;
     letter-spacing: 0.65px;
+    line-height: 1.55;
+    margin: 0;
+    padding: $space 0;
 
     @include mq($S) {
       font-size: $font-size-16;
@@ -27,10 +27,10 @@
 
   &--medium {
     font-size: $font-size-14;
-    padding: 0;
-    margin: $space 0 $space*3;
-    line-height: 1.55;
     letter-spacing: 0.65px;
+    line-height: 1.55;
+    margin: $space 0 $space*3;
+    padding: 0;
 
     @include mq($S) {
       font-size: $font-size-14;
@@ -47,9 +47,9 @@
 
   &--small {
     font-size: $font-size-16;
-    padding: 0;
-    margin: $space 0;
+    letter-spacing: 0.65px;
     line-height: 1.55;
-    letter-spacing: 0.65px
+    margin: $space 0;
+    padding: 0;
   }
 }

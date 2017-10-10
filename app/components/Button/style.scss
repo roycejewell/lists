@@ -2,32 +2,33 @@
 @import 'styles/mixins/mq.scss';
 
 .button {
+
   &--close {
+    background-color: #E34D67;
+    border-radius: 25px;
+    bottom: $space;
+    cursor: pointer;
+    font-size: $font-size-24;
+    height: 50px;
+    line-height: 50px;
     margin: 0;
     padding: 0;
-    bottom: $space;
-    right: $space;
     position: fixed;
-    font-size: $font-size-24;
-    transition: all 0.1s $easeInOutQuint;
-    cursor: pointer;
-    z-index: 20;
-    height: 50px;
-    width: 50px;
-    border-radius: 25px;
-    line-height: 50px;
+    right: $space;
     text-align: center;
-    background-color: #E34D67;
+    transition: all 0.1s $easeInOutQuint;
     transform: scale(0);
+    width: 50px;
+    z-index: 20;
 
     @include mq($M) {
+      border-radius: 23px;
       font-size: $font-size-20;
+      height: 45px;
+      line-height: 45px;
       right: 12%;
       top: $space;
-      height: 45px;
       width: 45px;
-      border-radius: 23px;
-      line-height: 45px;
     }
 
     @include mq($L) {
@@ -36,8 +37,8 @@
 
     .open & {
       opacity: 1;
-      transform: scale(1);
       transition: all 0.35s $easeInOutQuint 0.75s;
+      transform: scale(1);
     }
   }
 }

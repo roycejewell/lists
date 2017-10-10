@@ -1,50 +1,50 @@
 @import 'styles/variables.scss';
+@import 'styles/keyframes.scss';
 @import 'styles/mixins/mq.scss';
 
 .modal {
-  position: fixed;
-  top: 0;
   bottom: 0;
   left: 0;
-  right: 0;
-  overflow: hidden;
   opacity: 0;
+  overflow: hidden;
+  position: fixed;
+  right: 0;
+  top: 0;
 
   .open & {
     animation: modalFadeIn 0.25s ease forwards;
   }
 
   .closed & {
-    opacity: 1;
     animation: modalFadeOut 0.5s ease 0.4s forwards;
+    opacity: 1;
   }
 
   &__close {
+    bottom: $space;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: $font-size-24;
+    height: 50px;
+    line-height: 50px;
     margin: 0;
     padding: 0;
-    bottom: $space;
-    right: $space;
     position: fixed;
-    font-size: $font-size-24;
-    transition: all 0.1s $easeInOutQuint;
-    cursor: pointer;
-    z-index: 20;
-    height: 50px;
-    width: 50px;
-    border-radius: 25px;
-    line-height: 50px;
+    right: $space;
     text-align: center;
-    background-color: #E34D67;
     transform: scale(0);
+    transition: all 0.1s $easeInOutQuint;
+    width: 50px;
+    z-index: 20;
 
     @include mq($M) {
+      border-radius: 23px;
       font-size: $font-size-20;
+      height: 45px;
+      line-height: 45px;
       right: 12%;
       top: $space;
-      height: 45px;
       width: 45px;
-      border-radius: 23px;
-      line-height: 45px;
     }
 
     @include mq($L) {
@@ -60,17 +60,17 @@
 
   &__content {
     background-color: white;
-    position: absolute;
-    left: 0;
-    right: 0;
     height: 120px;
+    left: 0;
     padding: $space*2 $space;
+    position: absolute;
+    right: 0;
 
     @include mq($S) {
-      left: 10%;
-      right: 10%;
       height: 120px;
+      left: 10%;
       padding: $space*4 $space*2;
+      right: 10%;
     }
 
     @include mq($M) {
@@ -79,11 +79,11 @@
     }
 
     @include mq($L) {
-      position: absolute;
-      left: 20%;
-      right: 20%;
       height: 120px;
+      left: 20%;
       padding: $space*4;
+      position: absolute;
+      right: 20%;
     }
 
     .open & {
@@ -97,55 +97,14 @@
   }
 
   &__description--long {
+    margin-bottom: $space*6;
     opacity: 0;
     transform: translateY($space * 1.25);
-    margin-bottom: $space*6;
 
     .open & {
-      transition: all 0.25s ease 0.4s;
       opacity: 1;
       transform: translateY(0);
+      transition: all 0.25s ease 0.4s;
     }
-  }
-}
-
-@keyframes modalExpand {
-  to {
-    top: 0;
-    height: 100%;
-  }
-}
-
-@keyframes modalCollapse {
-  from {
-    top: 0;
-    height: 100%;
-  }
-}
-
-@keyframes modalFadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes modalFadeOut {
-  0% {
-    opacity: 1;
-    display: block;
-  }
-
-  50% {
-    opacity: 0;
-    display: block;
-  }
-
-  100% {
-    opacity: 0;
-    display: none;
-    z-index: -1;
   }
 }

@@ -2,10 +2,10 @@
 @import 'styles/mixins/mq.scss';
 
 .item {
-  position: relative;
   height: 120px;
-  padding: $space*2 $space;
   overflow: hidden;
+  position: relative;
+  padding: $space*2 $space;
 
   @include mq($S) {
     padding: $space*4 $space*2;

@@ -10,8 +10,8 @@
   }
 
   @include mq($M) {
-    position: fixed;
     padding: $space*2;
+    position: fixed;
   }
 
   @include mq($L) {
