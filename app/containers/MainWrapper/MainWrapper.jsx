@@ -10,10 +10,6 @@ import { brand } from 'data/brand';
 import { windowHeight } from 'services/windowSize';
 //import GA from 'services/gaService';
 
-if (process.env.BROWSER) {
-  require('./style.scss');
-}
-
 function renderChildren(props) {
   return React.Children.map(props.children, child => {
     return React.cloneElement(child, {
