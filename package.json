@@ -7,7 +7,7 @@
     "dev": "npm run clean && NODE_ENV=development nodemon server/index.js --watch server",
     "postinstall": "npm run dist",
     "dist": "npm run clean && npm run webpack-prod",
-    "clean": "rm -rf /public/dist && mkdir /public/dist",
+    "clean": "rm -rf public && mkdir public && mkdir public/dist",
     "eslint-all": "./node_modules/.bin/eslint --ext .jsx --ext .js . ; exit 0",
     "eslint-file": "./node_modules/.bin/eslint ",
     "webpack-prod": "NODE_ENV=production webpack -p --config ./webpack/production.config.js --progress --colors",
