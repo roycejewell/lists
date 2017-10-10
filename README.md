@@ -10,6 +10,7 @@ Create simple lists, great looking lists with just a few config files. Also easi
 
 #### Brand Data
 Brand data can be found in the `app/data/brand.js` file and will look as follows:
+
 Basic color scheming is the only customization available as of now, with plans to customize animation styles, typography, and margins / paddings.
 
 ```
@@ -30,9 +31,13 @@ export const brand = {
 
 #### List Items
 List items can be found in the `app/data/items.js` file and will look as follows:
+
 The `title` string will be the title of each one of your list items.
+
 The `slug` key is currently not being used but will need to be unique as it will hash the url to feature direct list item linking.
+
 `short` and `long` are descriptions. `short` is shown from the list views and both are shown on the items detail view.
+
 Each item can have an unlimited number of `examples`. Here the examples have a `title`, `description`, and `code` snippet however, down the line there will be templates to choose example types from. 
 
 ```
