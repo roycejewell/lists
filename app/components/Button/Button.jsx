@@ -1,4 +1,5 @@
 import React from 'react';
+import { brand } from 'data/brand';
 
 if (process.env.BROWSER) {
   require('./style.scss');
@@ -11,7 +12,10 @@ export const buttonTypes = {
 function Button (props) {
   const { children, click, type } = props;
   return (
-    <p className={`button button--${type}`} onClick={ () => click() }>{children}</p>
+    <p
+    style={{ backgroundColor: brand.buttonColor, color: brand.buttonIconColor }}
+    className={`button button--${type}`}
+    onClick={ () => click() }>{children}</p>
   );
 }
 

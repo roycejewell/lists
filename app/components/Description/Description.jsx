@@ -1,4 +1,5 @@
 import React from 'react';
+import { brand } from 'data/brand';
 
 if (process.env.BROWSER) {
   require('./style.scss');
@@ -14,7 +15,7 @@ function Description (props) {
   const { type, children } = props;
   return (
     <div className='description'>
-      <p className={`description--${ type }`}>{ children }</p>
+      <p className={`description--${ type }`} style={{ color: brand.descriptionColor }}>{ children }</p>
     </div>
   );
 }

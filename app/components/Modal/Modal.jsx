@@ -4,6 +4,7 @@ import Description, { descriptionTypes } from '../Description';
 import Code from '../Code';
 import Example from '../Example';
 import Button, { buttonTypes } from '../Button';
+import { brand } from 'data/brand';
 
 if (process.env.BROWSER) {
   require('./style.scss');
@@ -33,7 +34,7 @@ function Modal (props) {
   }
 
   return (
-    <div className='modal'>
+    <div className='modal' style={{ backgroundColor: brand.modalAccentColor }}>
       <div id='modal' className='modal__content' style={ style }>
         <Button type={ buttonTypes.close } click={ () => close() }>✕</Button>
         <div className='modal__title'>

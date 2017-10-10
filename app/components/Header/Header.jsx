@@ -5,9 +5,10 @@ if (process.env.BROWSER) {
 }
 
 function Header (props) {
+  const { logo } = props;
   return (
     <header className='header'>
-      <img src='https://upload.wikimedia.org/wikipedia/commons/3/39/Simpleicons_Places_map-with-placeholder.svg' className='header__logo'/>
+      <img src={ logo } className='header__logo'/>
     </header>
   );
 }

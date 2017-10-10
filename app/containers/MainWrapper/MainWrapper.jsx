@@ -6,6 +6,7 @@ import Header from 'components/Header';
 import Modal from 'components/Modal';
 import Loader from 'components/Loader';
 import Footer from 'components/Footer';
+import { brand } from 'data/brand';
 import { windowHeight } from 'services/windowSize';
 //import GA from 'services/gaService';
 
@@ -55,20 +56,27 @@ class MainWrapper extends Component {
     const { open, current, content, initial } = this.props.state.app;
     const { closeModal } = this.props.actions.app;
     const { location } = this.props;
+
     if (process.env.BROWSER) {
       document.body.style.animation = open ? 'disableScroll 0.01s ease forwards' : 'enableScroll 0.01s ease forwards 0.65s';
     }
 
     return (
       <div className={ open ? 'open' : 'closed'}>
-        <Loader visible={ initial }/>
-        <Header location={ location }/>
+        <Loader
+          visible={ initial }
+          color={ brand.loaderColor }
+        />
+        <Header
+          location={ location }
+          logo={ brand.logo }
+        />
         <main
           role="main"
           aria-live='polite'
           aria-relevant='additions removals'
           className='clearfix'
-          style={{minHeight: windowHeight(768, -100, 150)}}>
+          style={{minHeight: windowHeight(768, -100, 150), backgroundColor: brand.backgroundColor}}>
           { renderChildren(this.props) }
           <Modal
             current={ current }
