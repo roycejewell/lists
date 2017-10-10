@@ -10,7 +10,7 @@
   background-color: $grey;
   z-index: 15;
 
-  &.visible--false {
+  &.fade {
     pointer-events: none;
     opacity: 0;
     transition: opacity 1s ease 0.6s;

@@ -1,4 +1,43 @@
 @import 'styles/variables.scss';
 @import 'styles/mixins/mq.scss';
 
-.button { }
+.button {
+  &--close {
+    margin: 0;
+    padding: 0;
+    bottom: $space;
+    right: $space;
+    position: fixed;
+    font-size: $font-size-24;
+    transition: all 0.1s $easeInOutQuint;
+    cursor: pointer;
+    z-index: 20;
+    height: 50px;
+    width: 50px;
+    border-radius: 25px;
+    line-height: 50px;
+    text-align: center;
+    background-color: #E34D67;
+    transform: scale(0);
+
+    @include mq($M) {
+      font-size: $font-size-20;
+      right: 12%;
+      top: $space;
+      height: 45px;
+      width: 45px;
+      border-radius: 23px;
+      line-height: 45px;
+    }
+
+    @include mq($L) {
+      right: 21%;
+    }
+
+    .open & {
+      opacity: 1;
+      transform: scale(1);
+      transition: all 0.35s $easeInOutQuint 0.75s;
+    }
+  }
+}

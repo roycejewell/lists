@@ -5,8 +5,9 @@ if (process.env.BROWSER) {
 }
 
 function Code (props) {
+  const { children } = props;
   return (
-    <code className='code'>{ props.children }</code>
+    <code className='code'>{ children }</code>
   );
 }
 

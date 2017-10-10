@@ -54,6 +54,7 @@ class MainWrapper extends Component {
   render () {
     const { open, current, content, initial } = this.props.state.app;
     const { closeModal } = this.props.actions.app;
+    const { location } = this.props;
     if (process.env.BROWSER) {
       document.body.style.animation = open ? 'disableScroll 0.01s ease forwards' : 'enableScroll 0.01s ease forwards 0.65s';
     }
@@ -61,7 +62,7 @@ class MainWrapper extends Component {
     return (
       <div className={ open ? 'open' : 'closed'}>
         <Loader visible={ initial }/>
-        <Header location={ this.props.location }/>
+        <Header location={ location }/>
         <main
           role="main"
           aria-live='polite'

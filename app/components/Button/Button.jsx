@@ -4,12 +4,14 @@ if (process.env.BROWSER) {
   require('./style.scss');
 }
 
+export const buttonTypes = {
+  close: 'close'
+};
 
 function Button (props) {
+  const { children, click, type } = props;
   return (
-    <div className='button'>
-      <p>Button</p>
-    </div>
+    <p className={`button button--${type}`} onClick={ () => click() }>{children}</p>
   );
 }
 

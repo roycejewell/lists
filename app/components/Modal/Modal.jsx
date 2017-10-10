@@ -2,6 +2,8 @@ import React from 'react';
 import Title, { titleTypes } from '../Title';
 import Description, { descriptionTypes } from '../Description';
 import Code from '../Code';
+import Example from '../Example';
+import Button, { buttonTypes } from '../Button';
 
 if (process.env.BROWSER) {
   require('./style.scss');
@@ -10,18 +12,19 @@ if (process.env.BROWSER) {
 function renderExamples(examples) {
   return examples.map( ( example, i ) => {
     return (
-      <div className='modal__example' key={i}>
-        <Title type={ titleTypes.small }>{ example.title }</Title>
-        <Description type={ descriptionTypes.small }>{ example.description }</Description>
-        <Code>{ example.code }</Code>
-      </div>
+      <Example
+        key={ i }
+        title={ example.title }
+        description={ example.description }
+        code={ example.code }
+      />
     );
   });
 }
 
 function Modal (props) {
   const { content, close, visible, current } = props;
-  const { method, short, long, examples } = content;
+  const { title, short, long, examples } = content;
   const top = visible ? document.getElementById(`item-${current}`).getBoundingClientRect().top : 'none';
   const style = { top: top };
 
@@ -30,20 +33,21 @@ function Modal (props) {
   }
 
   return (
-    <div className={ `modal visible-${visible}` } >
+    <div className='modal'>
       <div id='modal' className='modal__content' style={ style }>
-        <p className='modal__close' onClick={ () => close() }>✕</p>
+        <Button type={ buttonTypes.close } click={ () => close() }>✕</Button>
         <div className='modal__title'>
-          <Title type={ titleTypes.medium }>{ content.method }</Title>
+          <Title type={ titleTypes.medium }>{ title }</Title>
         </div>
         <div className='modal__description--short'>
-          <Description type={ descriptionTypes.medium }>{ content.short }</Description>
+          <Description type={ descriptionTypes.medium }>{ short }</Description>
         </div>
         <div className='modal__description--long'>
-          <Description type={ descriptionTypes.medium }>{ content.long }</Description>
+          <Description type={ descriptionTypes.medium }>{ long }</Description>
         </div>
 
         { examples ? renderExamples( examples ) : null }
+
       </div>
     </div>
   );

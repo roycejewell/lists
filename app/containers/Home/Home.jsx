@@ -2,11 +2,33 @@ import React from 'react';
 import Title, { titleTypes } from 'components/Title';
 import Description, { descriptionTypes } from 'components/Description';
 import Nav from 'components/Nav';
-import { methods } from 'data/arrayMethods';
-import { brand } from 'data/brandData';
+import BrandHeader from 'components/BrandHeader';
+import Item from 'components/Item';
+import { items } from 'data/items';
+import { brand } from 'data/brand';
 
 if (process.env.BROWSER) {
   require('./style.scss');
+}
+
+function renderItems({items, current, open, openModal}) {
+  return items.map( ( item, i ) => {
+    const shouldFadeOut = (i !== current) && open ? 'item--fadeOut' : '';
+    const shouldFadeIn = (i !== current) && !open ? 'item--fadeIn' : '';
+    const isCurrent = i == current ? 'item--current' : '';
+
+    return (
+      <Item
+        key={ i }
+        id={ i }
+        item={ item }
+        click={ () => openModal( item, i ) }
+        isCurrent={ isCurrent }
+        shouldFadeIn={ shouldFadeIn }
+        shouldFadeOut={ shouldFadeOut }
+      />
+    );
+  })
 }
 
 function Home (props) {
@@ -15,24 +37,11 @@ function Home (props) {
 
   return (
     <div className='home'>
-      <div className='home__header'>
-        <Title type={ titleTypes.large }>{ brand.title }</Title>
-        <Description type={ descriptionTypes.large }>{ brand.description }</Description>
-      </div>
-      { methods.map( ( method, i ) => {
-          const shouldFadeOut = (i !== current) && open ? 'item--fadeOut' : '';
-          const shouldFadeIn = (i !== current) && !open ? 'item--fadeIn' : '';
-          const isCurrent = i == current ? 'item--current' : '';
-          return (
-            <div key={i} id={`item-${i}`} className={`item ${isCurrent} ${shouldFadeOut} ${shouldFadeIn}`}>
-              <div onClick={ () => openModal( method, i ) }>
-                <Title cursor={'pointer'} type={titleTypes.medium}>{ method.method }</Title>
-              </div>
-              <Description type={descriptionTypes.medium}>{ method.short }</Description>
-            </div>
-          );
-        })
-      }
+      <BrandHeader
+        title={ brand.title }
+        description={ brand.description }
+      />
+      { renderItems({items, current, open, openModal}) }
     </div>
   );
 }

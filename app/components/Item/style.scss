@@ -1,0 +1,27 @@
+@import 'styles/variables.scss';
+@import 'styles/mixins/mq.scss';
+
+.item {
+  position: relative;
+  height: 120px;
+  padding: $space*2 $space;
+  overflow: hidden;
+
+  @include mq($S) {
+    padding: $space*4 $space*2;
+  }
+
+  @include mq($L) {
+    padding: $space*4;
+  }
+  
+  &--fadeIn {
+    opacity: 1;
+    transition: opacity 0.25s ease 0.4s;
+  }
+
+  &--fadeOut {
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+}

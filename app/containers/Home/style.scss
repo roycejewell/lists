@@ -12,44 +12,4 @@
   @include mq($L) {
     width: 60%;
   }
-
-  &__header {
-    padding: $space $space 0;
-
-    @include mq($S) {
-      padding: $space*2 $space*2 $space;
-    }
-    @include mq($M) {
-      padding: $space*4 $space*2 $space;
-    }
-
-    @include mq($L) {
-      padding: $space*5 $space*4 $space*4;
-    }
-  }
-
-  .item {
-    position: relative;
-    height: 120px;
-    padding: $space*2 $space;
-    overflow: hidden;
-
-    @include mq($S) {
-      padding: $space*4 $space*2;
-    }
-
-    @include mq($L) {
-      padding: $space*4;
-    }
-  }
-
-  .item--fadeIn {
-    opacity: 1;
-    transition: opacity 0.25s ease 0.4s;
-  }
-
-  .item--fadeOut {
-    opacity: 0;
-    transition: opacity 0.2s ease;
-  }
 }

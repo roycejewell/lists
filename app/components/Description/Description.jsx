@@ -11,9 +11,10 @@ export const descriptionTypes = {
 };
 
 function Description (props) {
+  const { type, children } = props;
   return (
     <div className='description'>
-      <p className={`description--${props.type}`}>{ props.children }</p>
+      <p className={`description--${ type }`}>{ children }</p>
     </div>
   );
 }

@@ -7,7 +7,7 @@ if (process.env.BROWSER) {
 function Loader (props) {
   const { visible } = props;
   return (
-    <div className={`loader visible--${visible}`}></div>
+    <div className={`loader ${visible ? null : 'fade'}`}></div>
   );
 }
 
