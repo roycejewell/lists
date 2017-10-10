@@ -11,7 +11,8 @@ Create simple lists, great looking lists with just a few config files. Also easi
 #### Brand Data
 Brand data can be found in the `app/data/brand.js` file and will look as follows:
 
-```export const brand = {
+```
+export const brand = {
   logo: 'false',
   title: 'How to build a static list just like this very one.',
   description: `Here we will go through the steps needed to configure, build, and host a list just like this one all on your own.`,
@@ -29,7 +30,8 @@ Brand data can be found in the `app/data/brand.js` file and will look as follows
 #### List Items
 List items can be found in the `app/data/items.js` file and will look as follows:
 
-```export const items = [
+```
+export const items = [
   {
     title: 'String',
     slug: 'unique-name',
@@ -60,5 +62,5 @@ List items can be found in the `app/data/items.js` file and will look as follows
     ]
   },
   ...etc
- }
+ ]
  ```
