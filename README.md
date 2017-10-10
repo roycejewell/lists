@@ -23,7 +23,8 @@ Brand data can be found in the `app/data/brand.js` file and will look as follows
   buttonColor: '#DA3610',
   buttonIconColor: '#FAFAFA',
   footerColor: '#FAFAFA'
-}```
+}
+```
 
 #### List Items
 List items can be found in the `app/data/items.js` file and will look as follows:
@@ -59,4 +60,5 @@ List items can be found in the `app/data/items.js` file and will look as follows
     ]
   },
   ...etc
- }```
+ }
+ ```
