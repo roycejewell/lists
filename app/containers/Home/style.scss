@@ -2,8 +2,8 @@
 @import 'styles/mixins/mq.scss';
 
 .home {
-  width: 100%;
   margin: auto;
+  width: 100%;
 
   @include mq($S) {
     width: 80%;
